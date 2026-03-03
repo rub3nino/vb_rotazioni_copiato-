@@ -1,8 +1,11 @@
-<html>
+<!DOCTYPE html>
+<html lang="it">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Rotazioni della pallavolo - ricezione a 3</title>
-	<link rel="stylesheet" href="css/style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css" />
     <script src="js/snap.svg-min.js"></script>
     <script src="js/vbRotations.js"></script>
     <script type="text/javascript">
@@ -15,7 +18,7 @@
       }
 
       function handleError(msg) {
-        alert(msg);
+        console.error(msg);
       }
 
       function go() {
@@ -29,28 +32,101 @@
         svgMaker.draw();
       }
 
-      function move() {
-        svgMaker.move();
-      }
-
       window.onload = function () {
         go();
       }
+
+      function setAppRotation(pos) {
+        if(svgMaker && svgMaker.setRotation) {
+            svgMaker.setRotation(pos);
+            updateActiveRotation(pos);
+        }
+      }
+
+      function setAppAction(actionType, actionDetail) {
+        if(svgMaker && svgMaker.setAction) {
+            svgMaker.setAction(actionType, actionDetail);
+            updateActiveAction(actionType, actionDetail);
+        }
+      }
+
+      function updateActiveRotation(pos) {
+        document.querySelectorAll('.rot-btn').forEach(btn => btn.classList.remove('active'));
+        document.getElementById('rot-btn-' + pos).classList.add('active');
+      }
+
+      function updateActiveAction(type, detail) {
+        document.querySelectorAll('.act-btn').forEach(btn => btn.classList.remove('active'));
+        document.getElementById('act-btn-' + type.toLowerCase() + '-' + detail.toLowerCase()).classList.add('active');
+      }
+
     </script>
   </head>
   <body>
-	<h1>Rotazioni di ricezione nella pallavolo</h1>
-	<h3>con 3 ricettori</h3>
-    <div id="diagram-container" style="position: relative; display: inline-block;">
-      <div id="diagram"></div>
-      <input type="text" id="inline-editor" style="display: none; position: absolute; text-align: center; border: 2px solid #65b6df; border-radius: 4px; box-shadow: 0 0 5px rgba(101,182,223,0.5); padding: 2px; font-weight: bold; z-index: 100;">
-    </div>
-	<br>
-	<strong>note</strong>
-	<ul>
-		<li>il centrale di seconda linea va sostituito con il libero</li>
-	</ul>
-	This webpage is base on <a href="https://github.com/monkeysppp/VBRotations">VBRotations</a> a project of <a href="https://github.com/monkeysppp/">Andy Edwards</a><br/>
-Source code: <a href="https://github.com/napo/rotazionivolley">https://github.com/napo/rotazionivolley</a>
+    <header class="app-header">
+      <h1>Rotazioni Pallavolo</h1>
+      <h3>Ricezione a 3 ricettori</h3>
+    </header>
+
+    <main class="app-container">
+      
+      <!-- Sezione Rotazioni (P1 - P6) -->
+      <section class="controls-panel left-panel">
+        <div class="control-group">
+          <h4>Rotazione (Palleggiatore)</h4>
+          <div class="rotation-grid">
+            <button class="btn rot-btn" id="rot-btn-2" onclick="setAppRotation(2)">P2</button>
+            <button class="btn rot-btn" id="rot-btn-1" onclick="setAppRotation(1)">P1</button>
+            <button class="btn rot-btn" id="rot-btn-6" onclick="setAppRotation(6)">P6</button>
+            <button class="btn rot-btn" id="rot-btn-5" onclick="setAppRotation(5)">P5</button>
+            <button class="btn rot-btn" id="rot-btn-4" onclick="setAppRotation(4)">P4</button>
+            <button class="btn rot-btn" id="rot-btn-3" onclick="setAppRotation(3)">P3</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Il campo (SVG) -->
+      <section class="court-panel">
+        <div id="diagram-container">
+          <div id="diagram"></div>
+          <input type="text" id="inline-editor" style="display: none; position: absolute; text-align: center; border: 2px solid #65b6df; border-radius: 4px; box-shadow: 0 0 5px rgba(101,182,223,0.5); padding: 2px; font-weight: bold; z-index: 100;">
+        </div>
+      </section>
+
+      <!-- Sezione Azioni (Servizio/Ricezione) -->
+      <section class="controls-panel right-panel">
+        <div class="control-group">
+          <h4>Fase di Gioco</h4>
+          
+          <div class="action-subsection">
+            <h5>Servizio</h5>
+            <div class="action-grid">
+              <button class="btn act-btn" id="act-btn-serve-base" onclick="setAppAction('Serve', 'Base')">Base</button>
+              <button class="btn act-btn" id="act-btn-serve-serve" onclick="setAppAction('Serve', 'Serve')">Servizio</button>
+              <button class="btn act-btn" id="act-btn-serve-switch" onclick="setAppAction('Serve', 'Switch')">Cambio</button>
+            </div>
+          </div>
+
+          <div class="action-subsection">
+            <h5>Ricezione</h5>
+            <div class="action-grid">
+              <button class="btn act-btn" id="act-btn-receive-base" onclick="setAppAction('Receive', 'Base')">Base</button>
+              <button class="btn act-btn" id="act-btn-receive-receive" onclick="setAppAction('Receive', 'Receive')">Ricez.</button>
+              <button class="btn act-btn" id="act-btn-receive-set" onclick="setAppAction('Receive', 'Set')">Alzata</button>
+              <button class="btn act-btn" id="act-btn-receive-hit" onclick="setAppAction('Receive', 'Hit')">Attacco</button>
+              <button class="btn act-btn" id="act-btn-receive-switch" onclick="setAppAction('Receive', 'Switch')">Cambio</button>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+    </main>
+
+    <footer class="app-footer">
+      <p><strong>Note:</strong> il centrale di seconda linea va sostituito con il libero.</p>
+      <p>Based on <a href="https://github.com/monkeysppp/VBRotations" target="_blank">VBRotations</a> by Andy Edwards.</p>
+    </footer>
+
   </body>
 </html>

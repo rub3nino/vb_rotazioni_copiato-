@@ -593,11 +593,11 @@ monkeysppp.vbRotations.SVGMaker = function() {
   }
 
   function getWidth(options) {
-    return 900;
+    return '100%';
   }
 
   function getHeight(options) {
-    return 800;
+    return '100%';
   }
 
   function drawCourt() {
@@ -767,676 +767,15 @@ monkeysppp.vbRotations.SVGMaker = function() {
     _this.m2.click(function() {toggleHighlightPlayer(m2Circle);});
   }
 
-  function drawRotationControl() {
-    var vOffset1 = 10;
-    var vOffset2 = 70;
-
-    var box1 = _this.sroot.rect(0, 0, 250, 30);
-    box1.attr({
-      fill: _this.rotationControlBackgroundColourB,
-    });
-    var box2 = _this.sroot.rect(0, 30, 250, 80);
-    box2.attr({
-      fill: _this.rotationControlBackgroundColourA,
-    });
-    var box3 = _this.sroot.rect(0, 30 + (1 * (vOffset1 + vOffset2)), 250, 80);
-    box3.attr({
-      fill: _this.rotationControlBackgroundColourB,
-    });
-    var box4 = _this.sroot.rect(0, 30 + (2 * (vOffset1 + vOffset2)), 250, 80);
-    box4.attr({
-      fill: _this.rotationControlBackgroundColourA,
-    });
-    var box5 = _this.sroot.rect(0, 30 + (3 * (vOffset1 + vOffset2)), 250, 80);
-    box5.attr({
-      fill: _this.rotationControlBackgroundColourB,
-    });
-    var box6 = _this.sroot.rect(0, 30 + (4 * (vOffset1 + vOffset2)), 250, 80);
-    box6.attr({
-      fill: _this.rotationControlBackgroundColourA,
-    });
-    var box7 = _this.sroot.rect(0, 30 + (5 * (vOffset1 + vOffset2)), 250, 80);
-    box7.attr({
-      fill: _this.rotationControlBackgroundColourB,
-    });
-    var backgroundBoxes = _this.sroot.group(box1, box2, box3, box4, box5, box6, box7);
-
-    var textHeadingS = _this.sroot.text(40, 20, 'Servizio');
-    textHeadingS.attr({
-      fill: _this.rotationControlColour,
-      stroke: _this.rotationControlColour,
-      strokeWidth: '1',
-      'text-anchor':'middle',
-      'font-family': 'Verdana',
-      'font-size':'14',
-    });
-    var textHeadingR = _this.sroot.text(140, 20, 'Ricezione');
-    textHeadingR.attr({
-      fill: _this.rotationControlColour,
-      stroke: _this.rotationControlColour,
-      strokeWidth: '1',
-      'text-anchor':'middle',
-      'font-family': 'Verdana',
-      'font-size':'14',
-    });
-    var headingLabels = _this.sroot.group(textHeadingS, textHeadingR);
-
-    var textLabel2 = _this.sroot.text(240, 50, 'P2');
-    textLabel2.attr({
-      fill: _this.rotationControlColour,
-      stroke: _this.rotationControlColour,
-      strokeWidth: '1',
-      'text-anchor':'end',
-      'font-family': 'Verdana',
-      'font-size':'14',
-    });
-    var textLabel1 = _this.sroot.text(240, 50 + (1 * (vOffset1 + vOffset2)), 'P1');
-    textLabel1.attr({
-      fill: _this.rotationControlColour,
-      stroke: _this.rotationControlColour,
-      strokeWidth: '1',
-      'text-anchor':'end',
-      'font-family': 'Verdana',
-      'font-size':'14',
-    });
-    var textLabel6 = _this.sroot.text(240, 50 + (2 * (vOffset1 + vOffset2)), 'P6');
-    textLabel6.attr({
-      fill: _this.rotationControlColour,
-      stroke: _this.rotationControlColour,
-      strokeWidth: '1',
-      'text-anchor':'end',
-      'font-family': 'Verdana',
-      'font-size':'14',
-    });
-    var textLabel5 = _this.sroot.text(240, 50 + (3 * (vOffset1 + vOffset2)), 'P5');
-    textLabel5.attr({
-      fill: _this.rotationControlColour,
-      stroke: _this.rotationControlColour,
-      strokeWidth: '1',
-      'text-anchor':'end',
-      'font-family': 'Verdana',
-      'font-size':'14',
-    });
-    var textLabel4 = _this.sroot.text(240, 50 + (4 * (vOffset1 + vOffset2)), 'P4');
-    textLabel4.attr({
-      fill: _this.rotationControlColour,
-      stroke: _this.rotationControlColour,
-      strokeWidth: '1',
-      'text-anchor':'end',
-      'font-family': 'Verdana',
-      'font-size':'14',
-    });
-    var textLabel3 = _this.sroot.text(240, 50 + (5 * (vOffset1 + vOffset2)), 'P3');
-    textLabel3.attr({
-      fill: _this.rotationControlColour,
-      stroke: _this.rotationControlColour,
-      strokeWidth: '1',
-      'text-anchor':'end',
-      'font-family': 'Verdana',
-      'font-size':'14',
-    });
-    var rotationLabels = _this.sroot.group(textLabel1, textLabel2, textLabel3, textLabel4, textLabel5, textLabel6);
-
-    var joinLine1 = _this.sroot.line(40, 50, 140, 50 + (1 * vOffset1));
-    joinLine1.attr({
-      stroke: _this.rotationControlColour,
-      strokeWidth: 2,
-      'stroke-dasharray': '4, 4',
-    });
-    var joinLine2 = _this.sroot.line(140, 50 + (1 * vOffset1), 40, 50 + (1 * vOffset1) + (1 * vOffset2));
-    joinLine2.attr({
-      stroke: _this.rotationControlColour,
-      strokeWidth: 2,
-      'stroke-dasharray': '4, 4',
-    });
-    var joinLine3 = _this.sroot.line(40, 50 + (1 * vOffset1) + (1 * vOffset2), 140, 50 + (2 * vOffset1) + (1 * vOffset2));
-    joinLine3.attr({
-      stroke: _this.rotationControlColour,
-      strokeWidth: 2,
-      'stroke-dasharray': '4, 4',
-    });
-    var joinLine4 = _this.sroot.line(140, 50 + (2 * vOffset1) + (1 * vOffset2), 40, 50 + (2 * vOffset1) + (2 * vOffset2));
-    joinLine4.attr({
-      stroke: _this.rotationControlColour,
-      strokeWidth: 2,
-      'stroke-dasharray': '4, 4',
-    });
-    var joinLine5 = _this.sroot.line(40, 50 + (2 * vOffset1) + (2 * vOffset2), 140, 50 + (3 * vOffset1) + (2 * vOffset2));
-    joinLine5.attr({
-      stroke: _this.rotationControlColour,
-      strokeWidth: 2,
-      'stroke-dasharray': '4, 4',
-    });
-    var joinLine6 = _this.sroot.line(140, 50 + (3 * vOffset1) + (2 * vOffset2), 40, 50 + (3 * vOffset1) + (3 * vOffset2));
-    joinLine6.attr({
-      stroke: _this.rotationControlColour,
-      strokeWidth: 2,
-      'stroke-dasharray': '4, 4',
-    });
-    var joinLine7 = _this.sroot.line(40, 50 + (3 * vOffset1) + (3 * vOffset2), 140, 50 + (4 * vOffset1) + (3 * vOffset2));
-    joinLine7.attr({
-      stroke: _this.rotationControlColour,
-      strokeWidth: 2,
-      'stroke-dasharray': '4, 4',
-    });
-    var joinLine8 = _this.sroot.line(140, 50 + (4 * vOffset1) + (3 * vOffset2), 40, 50 + (4 * vOffset1) + (4 * vOffset2));
-    joinLine8.attr({
-      stroke: _this.rotationControlColour,
-      strokeWidth: 2,
-      'stroke-dasharray': '4, 4',
-    });
-    var joinLine9 = _this.sroot.line(40, 50 + (4 * vOffset1) + (4 * vOffset2), 140, 50 + (5 * vOffset1) + (4 * vOffset2));
-    joinLine9.attr({
-      stroke: _this.rotationControlColour,
-      strokeWidth: 2,
-      'stroke-dasharray': '4, 4',
-    });
-    var joinLine10 = _this.sroot.line(140, 50 + (5 * vOffset1) + (4 * vOffset2), 40, 50 + (5 * vOffset1) + (5 * vOffset2));
-    joinLine10.attr({
-      stroke: _this.rotationControlColour,
-      strokeWidth: 2,
-      'stroke-dasharray': '4, 4',
-    });
-    var joinLine11 = _this.sroot.line(40, 50 + (5 * vOffset1) + (5 * vOffset2), 140, 50 + (6 * vOffset1) + (5 * vOffset2));
-    joinLine11.attr({
-      stroke: _this.rotationControlColour,
-      strokeWidth: 2,
-      'stroke-dasharray': '4, 4',
-    });
-    var joinLines = _this.sroot.group(joinLine1, joinLine2, joinLine3, joinLine4, joinLine5, joinLine6, joinLine7, joinLine8, joinLine9, joinLine10, joinLine11);
-
-    var setLineS = _this.sroot.line(40, 50, 40, 50 + (5 * vOffset1) + (5 * vOffset2));
-    setLineS.attr({
-      stroke: _this.rotationControlColour,
-      strokeWidth: 1,
-      'stroke-dasharray': '6, 6',
-    });
-    var setLineR = _this.sroot.line(140, 50, 140, 50 + (6 * vOffset1) + (5 * vOffset2));
-    setLineR.attr({
-      stroke: _this.rotationControlColour,
-      strokeWidth: 1,
-      'stroke-dasharray': '6, 6',
-    });
-    var setLines = _this.sroot.group(setLineS, setLineR);
-
-    _this.controlTwoSrv = _this.sroot.circle(40, 50, _this.rotationControlCirleRadius);
-    _this.controlTwoSrv.attr({
-      stroke: _this.rotationControlColour,
-      strokeWidth: 2,
-      fill: _this.rotationControlBackgroundColourA,
-    });
-    _this.controlTwoSrv.attr({ cursor: 'pointer' });
-    _this.controlTwoRcv = _this.sroot.circle(140, 50 + (1 * vOffset1), _this.rotationControlCirleRadius);
-    _this.controlTwoRcv.attr({
-      stroke: _this.rotationControlColour,
-      strokeWidth: 2,
-      fill: _this.rotationControlBackgroundColourA,
-    });
-    _this.controlTwoRcv.attr({ cursor: 'pointer' });
-
-    _this.controlOneSrv = _this.sroot.circle(40, 50 + (1 * vOffset1) + (1 * vOffset2), _this.rotationControlCirleRadius);
-    _this.controlOneSrv.attr({
-      stroke: _this.rotationControlColour,
-      strokeWidth: 2,
-      fill: _this.rotationControlBackgroundColourB,
-    });
-    _this.controlOneSrv.attr({ cursor: 'pointer' });
-    _this.controlOneRcv = _this.sroot.circle(140, 50 + (2 * vOffset1) + (1 * vOffset2), _this.rotationControlCirleRadius);
-    _this.controlOneRcv.attr({
-      stroke: _this.rotationControlColour,
-      strokeWidth: 2,
-      fill: _this.rotationControlBackgroundColourB,
-    });
-    _this.controlOneRcv.attr({ cursor: 'pointer' });
-
-    _this.controlSixSrv = _this.sroot.circle(40, 50 + (2 * vOffset1) + (2 * vOffset2), _this.rotationControlCirleRadius);
-    _this.controlSixSrv.attr({
-      stroke: _this.rotationControlColour,
-      strokeWidth: 2,
-      fill: _this.rotationControlBackgroundColourA,
-    });
-    _this.controlSixSrv.attr({ cursor: 'pointer' });
-    _this.controlSixRcv = _this.sroot.circle(140, 50 + (3 * vOffset1) + (2 * vOffset2), _this.rotationControlCirleRadius);
-    _this.controlSixRcv.attr({
-      stroke: _this.rotationControlColour,
-      strokeWidth: 2,
-      fill: _this.rotationControlBackgroundColourA,
-    });
-    _this.controlSixRcv.attr({ cursor: 'pointer' });
-
-    _this.controlFiveSrv = _this.sroot.circle(40, 50 + (3 * vOffset1) + (3 * vOffset2), _this.rotationControlCirleRadius);
-    _this.controlFiveSrv.attr({
-      stroke: _this.rotationControlColour,
-      strokeWidth: 2,
-      fill: _this.rotationControlBackgroundColourB,
-    });
-    _this.controlFiveSrv.attr({ cursor: 'pointer' });
-    _this.controlFiveRcv = _this.sroot.circle(140, 50 + (4 * vOffset1) + (3 * vOffset2), _this.rotationControlCirleRadius);
-    _this.controlFiveRcv.attr({
-      stroke: _this.rotationControlColour,
-      strokeWidth: 2,
-      fill: _this.rotationControlBackgroundColourB,
-    });
-    _this.controlFiveRcv.attr({ cursor: 'pointer' });
-
-    _this.controlFourSrv = _this.sroot.circle(40, 50 + (4 * vOffset1) + (4 * vOffset2), _this.rotationControlCirleRadius);
-    _this.controlFourSrv.attr({
-      stroke: _this.rotationControlColour,
-      strokeWidth: 2,
-      fill: _this.rotationControlBackgroundColourA,
-    });
-    _this.controlFourSrv.attr({ cursor: 'pointer' });
-    _this.controlFourRcv = _this.sroot.circle(140, 50 + (5 * vOffset1) + (4 * vOffset2), _this.rotationControlCirleRadius);
-    _this.controlFourRcv.attr({
-      stroke: _this.rotationControlColour,
-      strokeWidth: 2,
-      fill: _this.rotationControlBackgroundColourA,
-    });
-    _this.controlFourRcv.attr({ cursor: 'pointer' });
-
-    _this.controlThreeSrv = _this.sroot.circle(40, 50 + (5 * vOffset1) + (5 * vOffset2), _this.rotationControlCirleRadius);
-    _this.controlThreeSrv.attr({
-      stroke: _this.rotationControlColour,
-      strokeWidth: 2,
-      fill: _this.rotationControlBackgroundColourB,
-    });
-    _this.controlThreeSrv.attr({ cursor: 'pointer' });
-    _this.controlThreeRcv = _this.sroot.circle(140, 50 + (6 * vOffset1) + (5 * vOffset2), _this.rotationControlCirleRadius);
-    _this.controlThreeRcv.attr({
-      stroke: _this.rotationControlColour,
-      strokeWidth: 2,
-      fill: _this.rotationControlBackgroundColourB,
-    });
-    _this.controlThreeRcv.attr({ cursor: 'pointer' });
-    var controlCircles = _this.sroot.group(_this.controlOneSrv, _this.controlTwoSrv, _this.controlThreeSrv, _this.controlFourSrv, _this.controlFiveSrv, _this.controlSixSrv,
-        _this.controlOneRcv, _this.controlTwoRcv, _this.controlThreeRcv, _this.controlFourRcv, _this.controlFiveRcv, _this.controlSixRcv);
-
-    _this.controlTwoRcv.click(function() {_this.setterAt = 2;if (move(_this.playerOffsetsBase[_this.setterAt], 500)) {controlSelect(_this.setterAt, false, _this.controlReceiveBase);}});
-    _this.controlTwoSrv.click(function() {_this.setterAt = 2;if (move(_this.playerOffsetsBase[_this.setterAt], 500)) {controlSelect(_this.setterAt, true, _this.controlServeBase);}});
-    _this.controlOneRcv.click(function() {_this.setterAt = 1;if (move(_this.playerOffsetsBase[_this.setterAt], 500)) {controlSelect(_this.setterAt, false, _this.controlReceiveBase);}});
-    _this.controlOneSrv.click(function() {_this.setterAt = 1;if (move(_this.playerOffsetsBase[_this.setterAt], 500)) {controlSelect(_this.setterAt, true, _this.controlServeBase);}});
-    _this.controlSixRcv.click(function() {_this.setterAt = 6;if (move(_this.playerOffsetsBase[_this.setterAt], 500)) {controlSelect(_this.setterAt, false, _this.controlReceiveBase);}});
-    _this.controlSixSrv.click(function() {_this.setterAt = 6;if (move(_this.playerOffsetsBase[_this.setterAt], 500)) {controlSelect(_this.setterAt, true, _this.controlServeBase);}});
-    _this.controlFiveRcv.click(function() {_this.setterAt = 5;if (move(_this.playerOffsetsBase[_this.setterAt], 500)) {controlSelect(_this.setterAt, false, _this.controlReceiveBase);}});
-    _this.controlFiveSrv.click( function() {_this.setterAt = 5;if (move(_this.playerOffsetsBase[_this.setterAt], 500)) {controlSelect(_this.setterAt, true, _this.controlServeBase);}});
-    _this.controlFourRcv.click( function() {_this.setterAt = 4;if (move(_this.playerOffsetsBase[_this.setterAt], 500)) {controlSelect(_this.setterAt, false, _this.controlReceiveBase);}});
-    _this.controlFourSrv.click( function() {_this.setterAt = 4;if (move(_this.playerOffsetsBase[_this.setterAt], 500)) {controlSelect(_this.setterAt, true, _this.controlServeBase);}});
-    _this.controlThreeRcv.click(function() {_this.setterAt = 3;if (move(_this.playerOffsetsBase[_this.setterAt], 500)) {controlSelect(_this.setterAt, false, _this.controlReceiveBase);}});
-    _this.controlThreeSrv.click(function() {_this.setterAt = 3;if (move(_this.playerOffsetsBase[_this.setterAt], 500)) {controlSelect(_this.setterAt, true, _this.controlServeBase);}});
-
-    _this.rotationControls = _this.sroot.group(backgroundBoxes, headingLabels, rotationLabels, joinLines, setLines, controlCircles);
-
-    _this.rotationControls.transform('t630, 25');
-  }
-
-  function drawActionControl() {
-    var serveBox1 = _this.sroot.rect(70, 560, 94, 95);
-    serveBox1.attr({
-      fill: _this.rotationControlBackgroundColourB
-    });
-    var serveBox2 = _this.sroot.rect(164, 560, 94, 95);
-    serveBox2.attr({
-      fill: _this.rotationControlBackgroundColourA
-    });
-    var serveBox3 = _this.sroot.rect(258, 560, 94, 95);
-    serveBox3.attr({
-      fill: _this.rotationControlBackgroundColourB
-    });
-    var serveBox4 = _this.sroot.rect(350, 560, 92, 95);
-    serveBox4.attr({
-      fill: _this.rotationControlBackgroundColourA
-    });
-    var serveBox5 = _this.sroot.rect(442, 560, 96, 95);
-    serveBox5.attr({
-      fill: _this.rotationControlBackgroundColourB
-    });
-
-    var receiveBox1 = _this.sroot.rect(70, 655, 94, 100);
-    receiveBox1.attr({
-      fill: _this.rotationControlBackgroundColourB
-    });
-    var receiveBox2 = _this.sroot.rect(164, 655, 94, 100);
-    receiveBox2.attr({
-      fill: _this.rotationControlBackgroundColourA
-    });
-    var receiveBox3 = _this.sroot.rect(258, 655, 94, 100);
-    receiveBox3.attr({
-      fill: _this.rotationControlBackgroundColourB
-    });
-    var receiveBox4 = _this.sroot.rect(350, 655, 92, 100);
-    receiveBox4.attr({
-      fill: _this.rotationControlBackgroundColourA
-    });
-    var receiveBox5 = _this.sroot.rect(442, 655, 96, 100);
-    receiveBox5.attr({
-      fill: _this.rotationControlBackgroundColourB
-    });
-
-    var setBar = _this.sroot.rect(538, 590, 142, 20);
-    setBar.attr({
-      fill: _this.rotationControlBackgroundColourB
-    });
-    setBar = _this.sroot.rect(660, 535, 20, 75);
-    setBar.attr({
-      fill: _this.rotationControlBackgroundColourB
-    });
-    setBar = _this.sroot.rect(538, 690, 242, 20);
-    setBar.attr({
-      fill: _this.rotationControlBackgroundColourB
-    });
-    setBar = _this.sroot.rect(760, 535, 20, 175);
-    setBar.attr({
-      fill: _this.rotationControlBackgroundColourB
-    });
-
-    var setLine = _this.sroot.line(115, 600, 670, 600);
-    setLine.attr({
-      stroke: _this.rotationControlColour,
-      strokeWidth: 1,
-      'stroke-dasharray': '6, 6'
-    });
-    setLine = _this.sroot.line(670, 600, 670, 475 + _this.rotationControlCirleRadius);
-    setLine.attr({
-      stroke: _this.rotationControlColour,
-      strokeWidth: 1,
-      'stroke-dasharray': '6, 6'
-    });
-    setLine = _this.sroot.line(115, 700, 770, 700);
-    setLine.attr({
-      stroke: _this.rotationControlColour,
-      strokeWidth: 1,
-      'stroke-dasharray': '6, 6'
-    });
-    setLine = _this.sroot.line(770, 700, 770, 485 + _this.rotationControlCirleRadius);
-    setLine.attr({
-      stroke: _this.rotationControlColour,
-      strokeWidth: 1,
-      'stroke-dasharray': '6, 6'
-    });
-
-    var textHeadingS = _this.sroot.text(105, 578, 'Servizio');
-    textHeadingS.attr({
-      fill: _this.rotationControlColour,
-      stroke: _this.rotationControlColour,
-      strokeWidth: '1',
-      'text-anchor':'middle',
-      'font-family': 'Verdana',
-      'font-size':'14'
-    });
-    var textHeadingR = _this.sroot.text(110, 673, 'Ricezione');
-    textHeadingR.attr({
-      fill: _this.rotationControlColour,
-      stroke: _this.rotationControlColour,
-      strokeWidth: '1',
-      'text-anchor':'middle',
-      'font-family': 'Verdana',
-      'font-size':'14'
-    });
-    var headingLabels = _this.sroot.group(textHeadingS, textHeadingR);
-
-    _this.controlServeBase = _this.sroot.circle(115, 600, _this.rotationControlCirleRadius);
-    _this.controlServeBase.attr({
-      stroke: _this.rotationControlColour,
-      strokeWidth: 2,
-      fill: _this.rotationControlBackgroundColourA
-    });
-    _this.controlServeBase.attr({ cursor: 'pointer' });
-    _this.controlServeServe = _this.sroot.circle(300, 600, _this.rotationControlCirleRadius);
-    _this.controlServeServe.attr({
-      stroke: _this.rotationControlColour,
-      strokeWidth: 2,
-      fill: _this.rotationControlBackgroundColourA
-    });
-    _this.controlServeServe.attr({ cursor: 'pointer' });
-    _this.controlServeSwitch = _this.sroot.circle(485, 600, _this.rotationControlCirleRadius);
-    _this.controlServeSwitch.attr({
-      stroke: _this.rotationControlColour,
-      strokeWidth: 2,
-      fill: _this.rotationControlBackgroundColourA
-    });
-    _this.controlServeSwitch.attr({ cursor: 'pointer' });
-
-    _this.controlReceiveBase = _this.sroot.circle(115, 700, _this.rotationControlCirleRadius);
-    _this.controlReceiveBase.attr({
-      stroke: _this.rotationControlColour,
-      strokeWidth: 2,
-      fill: _this.rotationControlBackgroundColourA
-    });
-    _this.controlReceiveBase.attr({ cursor: 'pointer' });
-    _this.controlReceiveReceive = _this.sroot.circle(207, 700, _this.rotationControlCirleRadius);
-    _this.controlReceiveReceive.attr({
-      stroke: _this.rotationControlColour,
-      strokeWidth: 2,
-      fill: _this.rotationControlBackgroundColourA
-    });
-    _this.controlReceiveReceive.attr({ cursor: 'pointer' });
-    _this.controlReceiveSet = _this.sroot.circle(300, 700, _this.rotationControlCirleRadius);
-    _this.controlReceiveSet.attr({
-      stroke: _this.rotationControlColour,
-      strokeWidth: 2,
-      fill: _this.rotationControlBackgroundColourA
-    });
-    _this.controlReceiveSet.attr({ cursor: 'pointer' });
-    _this.controlReceiveHit = _this.sroot.circle(393, 700, _this.rotationControlCirleRadius);
-    _this.controlReceiveHit.attr({
-      stroke: _this.rotationControlColour,
-      strokeWidth: 2,
-      fill: _this.rotationControlBackgroundColourA
-    });
-    _this.controlReceiveHit.attr({ cursor: 'pointer' });
-    _this.controlReceiveSwitch = _this.sroot.circle(485, 700, _this.rotationControlCirleRadius);
-    _this.controlReceiveSwitch.attr({
-      stroke: _this.rotationControlColour,
-      strokeWidth: 2,
-      fill: _this.rotationControlBackgroundColourA
-    });
-    _this.controlReceiveSwitch.attr({ cursor: 'pointer' });
-
-    var textLabel = _this.sroot.text(115, 640, 'Base');
-    textLabel.attr({
-      fill: _this.rotationControlColour,
-      stroke: _this.rotationControlColour,
-      strokeWidth: '1',
-      'text-anchor':'middle',
-      'font-family': 'Verdana',
-      'font-size':'22'
-    });
-    textLabel = _this.sroot.text(300, 640, 'Servizio');
-    textLabel.attr({
-      fill: _this.rotationControlColour,
-      stroke: _this.rotationControlColour,
-      strokeWidth: '1',
-      'text-anchor':'middle',
-      'font-family': 'Verdana',
-      'font-size':'22'
-    });
-    textLabel = _this.sroot.text(485, 640, 'Cambio');
-    textLabel.attr({
-      fill: _this.rotationControlColour,
-      stroke: _this.rotationControlColour,
-      strokeWidth: '1',
-      'text-anchor':'middle',
-      'font-family': 'Verdana',
-      'font-size':'22'
-    });
-
-    textLabel = _this.sroot.text(115, 740, 'Base');
-    textLabel.attr({
-      fill: _this.rotationControlColour,
-      stroke: _this.rotationControlColour,
-      strokeWidth: '1',
-      'text-anchor':'middle',
-      'font-family': 'Verdana',
-      'font-size':'22'
-    });
-    textLabel = _this.sroot.text(207, 740, 'Ricezione');
-    textLabel.attr({
-      fill: _this.rotationControlColour,
-      stroke: _this.rotationControlColour,
-      strokeWidth: '1',
-      'text-anchor':'middle',
-      'font-family': 'Verdana',
-      'font-size':'22'
-    });
-    textLabel = _this.sroot.text(300, 740, 'Alzata');
-    textLabel.attr({
-      fill: _this.rotationControlColour,
-      stroke: _this.rotationControlColour,
-      strokeWidth: '1',
-      'text-anchor':'middle',
-      'font-family': 'Verdana',
-      'font-size':'22'
-    });
-    textLabel = _this.sroot.text(393, 740, 'Attacco');
-    textLabel.attr({
-      fill: _this.rotationControlColour,
-      stroke: _this.rotationControlColour,
-      strokeWidth: '1',
-      'text-anchor':'middle',
-      'font-family': 'Verdana',
-      'font-size':'22'
-    });
-    textLabel = _this.sroot.text(485, 740, 'Cambio');
-    textLabel.attr({
-      fill: _this.rotationControlColour,
-      stroke: _this.rotationControlColour,
-      strokeWidth: '1',
-      'text-anchor':'middle',
-      'font-family': 'Verdana',
-      'font-size':'22'
-    });
-
-    _this.controlServeBase.click(function() {if (move(_this.playerOffsetsBase[_this.setterAt], 500)) {controlSelect(_this.setterAt, true, _this.controlServeBase);}});
-    _this.controlServeServe.click(function() {if (move(_this.playerOffsetsServeServe[_this.setterAt], 500)) {controlSelect(_this.setterAt, true, _this.controlServeServe);}});
-    _this.controlServeSwitch.click(function() {if (move(_this.playerOffsetsSwitchServe[_this.setterAt], 500)) {controlSelect(_this.setterAt, true, _this.controlServeSwitch);}});
-    _this.controlReceiveBase.click(function() {if (move(_this.playerOffsetsBase[_this.setterAt], 500)) {controlSelect(_this.setterAt, false, _this.controlReceiveBase);}});
-    _this.controlReceiveReceive.click(function() {if (move(_this.playerOffsetsReceiveReceive[_this.setterAt], 500)) {controlSelect(_this.setterAt, false, _this.controlReceiveReceive);}});
-    _this.controlReceiveSet.click(function() {if (move(_this.playerOffsetsReceiveSet[_this.setterAt], 500)) {controlSelect(_this.setterAt, false, _this.controlReceiveSet);}});
-    _this.controlReceiveHit.click(function() {if (move(_this.playerOffsetsReceiveHit[_this.setterAt], 500)) {controlSelect(_this.setterAt, false, _this.controlReceiveHit);}});
-    _this.controlReceiveSwitch.click(function() {if (move(_this.playerOffsetsSwitchReceive[_this.setterAt], 500)) {controlSelect(_this.setterAt, false, _this.controlReceiveSwitch);}});
-  }
-
-  function drawTutorialButton() {
-    var tutorialButtonBox = _this.sroot.rect(750, 740, 100, 40);
-    tutorialButtonBox.attr({
-      fill: _this.tutorialColour
-    });
-    var tutorialButtonText = _this.sroot.text(800, 768, 'Tutorial');
-    tutorialButtonText.attr({
-      fill: _this.rotationControlColour,
-      stroke: _this.rotationControlColour,
-      strokeWidth: '1',
-      'text-anchor':'middle',
-      'font-family': 'Verdana',
-      'font-size':'22',
-      cursor: 'pointer',
-    });
-
-    _this.tutorialButton = _this.sroot.group(tutorialButtonBox, tutorialButtonText);
-    _this.tutorialButton.attr({ cursor: 'pointer' });
-
-    _this.tutorialButton.click(function() {errorHandler("foo"); drawTutorial(0);});
-  }
-
-  function drawTutorial(index) {
-    errorHandler("start");
-    if (index >= _this.tutorialData.length) {
-      errorHandler("done");
-      return;
-    }
-
-    var p1 = _this.sroot.path("M0 0 H" + _this.width + "V" + _this.height + "H0Z " +
-      "M" + _this.tutorialData[index].boxPosition.right + " " + _this.tutorialData[index].boxPosition.top + " " +
-      "H" + _this.tutorialData[index].boxPosition.left + "V" + _this.tutorialData[index].boxPosition.bottom +
-      "H" + _this.tutorialData[index].boxPosition.right + "Z");
-
-    _this.tutorialMask = _this.sroot.group(p1);
-    _this.tutorialMask.attr({
-      'fill-rule': 'evenodd',
-      'fill': _this.tutorialFade,
-      'fill-opacity': 0.8
-    });
-
-    _this.tutorialMaskEdge = _this.sroot.rect(
-      _this.tutorialData[index].boxPosition.left,
-      _this.tutorialData[index].boxPosition.top,
-      _this.tutorialData[index].boxPosition.right - _this.tutorialData[index].boxPosition.left,
-      _this.tutorialData[index].boxPosition.bottom - _this.tutorialData[index].boxPosition.top
-    );
-    _this.tutorialMaskEdge.attr({
-      stroke: _this.tutorialColour,
-      fill: 'none'
-    });
-
-    var textBox = _this.sroot.rect(
-      _this.tutorialData[index].textPosition.left,
-      _this.tutorialData[index].textPosition.top,
-      _this.tutorialData[index].textPosition.right - _this.tutorialData[index].textPosition.left,
-      _this.tutorialData[index].textPosition.bottom - _this.tutorialData[index].textPosition.top
-    );
-    textBox.attr({
-      fill: _this.tutorialColour
-    });
-
-    _this.tutorialTextBox = _this.sroot.group(textBox);
-
-    var textChunks = _this.tutorialData[index].text.split('\n');
-    for(var i = 0; i < textChunks.length; i++) {
-      var textLine = _this.sroot.text(_this.tutorialData[index].textPosition.left + 10,
-        _this.tutorialData[index].textPosition.top + 26 + (i * 20),
-        textChunks[i]);
-      textLine.attr({
-        fill: _this.rotationControlColour,
-        stroke: _this.rotationControlColour,
-        strokeWidth: '1',
-        'text-anchor':'left',
-        'font-family': 'Verdana',
-        'font-size':'16',
-        cursor: 'pointer',
-      });
-      _this.tutorialTextBox.add(textLine);
-    }
-
-    var nextButtonBox = _this.sroot.rect(
-      _this.tutorialData[index].nextPosition.left,
-      _this.tutorialData[index].nextPosition.top,
-      100,
-      40
-    );
-    nextButtonBox.attr({
-      fill: _this.tutorialColour
-    });
-    var nextButtonText = _this.sroot.text(_this.tutorialData[index].nextPosition.left + 50,
-      _this.tutorialData[index].nextPosition.top + 28,
-      'Avanti'
-    );
-    nextButtonText.attr({
-      fill: _this.rotationControlColour,
-      stroke: _this.rotationControlColour,
-      strokeWidth: '1',
-      'text-anchor':'middle',
-      'font-family': 'Verdana',
-      'font-size':'22',
-      cursor: 'pointer',
-    });
-
-    _this.tutorialNextButton = _this.sroot.group(nextButtonBox, nextButtonText);
-    _this.tutorialNextButton.attr({ cursor: 'pointer' });
-
-    _this.tutorialNextButton.click(function() {
-      _this.tutorialMask.remove();
-      _this.tutorialTextBox.remove();
-      _this.tutorialNextButton.remove();
-      _this.tutorialMaskEdge.remove();
-        drawTutorial(index+1);
-    });
-  }
+  // Controls logic moved to HTML completely.
 
   function createSVGDocRoot(width, height) {
     _this.moving = false;
     var svgRoot = document.createElementNS(_this.NS, 'svg');
     svgRoot.setAttribute('width', width);
     svgRoot.setAttribute('height', height);
+    svgRoot.setAttribute('viewBox', '0 0 600 660');
+    svgRoot.setAttribute('preserveAspectRatio', 'xMidYMid meet');
     svgRoot.setAttribute('id', 'vbsvg');
     return svgRoot;
   }
@@ -1453,10 +792,10 @@ monkeysppp.vbRotations.SVGMaker = function() {
   function draw() {
     _this.sroot = Snap('#vbsvg');
     drawCourt();
-    drawRotationControl();
-    drawActionControl();
+    // drawRotationControl(); // Removed, now in HTML
+    // drawActionControl(); // Removed, now in HTML
     drawPlayers();
-    drawTutorialButton();
+    // drawTutorialButton(); // Removed, handled externally if needed
     initialisePlayers();
     setupPlayerNames();
   }
@@ -1587,60 +926,43 @@ monkeysppp.vbRotations.SVGMaker = function() {
   }
 
   function initialisePlayers() {
-    controlSelect(2, true, _this.controlServeBase);
-    move(_this.playerOffsetsBase[2], 1);
-    serveRotation = true;
+    _this.setterAt = 2; // Default starting rotation
+    if (move(_this.playerOffsetsBase[2], 1)) {
+        // Automatically selects Serve/Base layout 
+    }
+    _this.serveRotation = true;
+    _this.currentAction = { type: 'Serve', detail: 'Base' };
   }
 
-  function controlSelect(setterPos, serving, action) {
-    _this.controlTwoRcv.attr({fill: _this.rotationControlBackgroundColourA});
-    _this.controlTwoSrv.attr({fill: _this.rotationControlBackgroundColourA});
-    _this.controlOneRcv.attr({fill: _this.rotationControlBackgroundColourB});
-    _this.controlOneSrv.attr({fill: _this.rotationControlBackgroundColourB});
-    _this.controlSixRcv.attr({fill: _this.rotationControlBackgroundColourA});
-    _this.controlSixSrv.attr({fill: _this.rotationControlBackgroundColourA});
-    _this.controlFiveRcv.attr({fill: _this.rotationControlBackgroundColourB});
-    _this.controlFiveSrv.attr({fill: _this.rotationControlBackgroundColourB});
-    _this.controlFourRcv.attr({fill: _this.rotationControlBackgroundColourA});
-    _this.controlFourSrv.attr({fill: _this.rotationControlBackgroundColourA});
-    _this.controlThreeRcv.attr({fill: _this.rotationControlBackgroundColourB});
-    _this.controlThreeSrv.attr({fill: _this.rotationControlBackgroundColourB});
+  this.setRotation = function(pos) {
+    if (pos >= 1 && pos <= 6) {
+        _this.setterAt = pos;
+        _this.reapplyCurrentAction();
+    }
+  };
 
-    var currentControl;
-    if (setterPos === 1) {
-      currentControl = serving ? _this.controlOneSrv : _this.controlOneRcv;
-    }
-    else if (setterPos === 2) {
-      currentControl = serving ? _this.controlTwoSrv : _this.controlTwoRcv;
-    }
-    else if (setterPos === 3) {
-      currentControl = serving ? _this.controlThreeSrv : _this.controlThreeRcv;
-    }
-    else if (setterPos === 4) {
-      currentControl = serving ? _this.controlFourSrv : _this.controlFourRcv;
-    }
-    else if (setterPos === 5) {
-      currentControl = serving ? _this.controlFiveSrv : _this.controlFiveRcv;
-    }
-    else if (setterPos === 6) {
-      currentControl = serving ? _this.controlSixSrv : _this.controlSixRcv;
-    }
+  this.setAction = function(actionType, actionDetail) {
+    _this.currentAction = { type: actionType, detail: actionDetail };
+    _this.reapplyCurrentAction();
+  };
 
-    currentControl.attr({fill: _this.rotationControlColour});
-    actionSelect(action);
-  }
+  this.reapplyCurrentAction = function() {
+      var pos = _this.setterAt;
+      var type = _this.currentAction.type; // 'Serve' or 'Receive'
+      var detail = _this.currentAction.detail;
 
-  function actionSelect(action) {
-    _this.controlServeBase.attr({fill: _this.rotationControlBackgroundColourA});
-    _this.controlServeServe.attr({fill: _this.rotationControlBackgroundColourA});
-    _this.controlServeSwitch.attr({fill: _this.rotationControlBackgroundColourA});
-    _this.controlReceiveBase.attr({fill: _this.rotationControlBackgroundColourA});
-    _this.controlReceiveReceive.attr({fill: _this.rotationControlBackgroundColourA});
-    _this.controlReceiveSet.attr({fill: _this.rotationControlBackgroundColourA});
-    _this.controlReceiveHit.attr({fill: _this.rotationControlBackgroundColourA});
-    _this.controlReceiveSwitch.attr({fill: _this.rotationControlBackgroundColourA});
-    action.attr({fill: _this.rotationControlColour});
-  }
+      if (type === 'Serve') {
+          if (detail === 'Base') { move(_this.playerOffsetsBase[pos], 500); }
+          else if (detail === 'Serve') { move(_this.playerOffsetsServeServe[pos], 500); }
+          else if (detail === 'Switch') { move(_this.playerOffsetsSwitchServe[pos], 500); }
+      } else if (type === 'Receive') {
+          if (detail === 'Base') { move(_this.playerOffsetsBase[pos], 500); }
+          else if (detail === 'Receive') { move(_this.playerOffsetsReceiveReceive[pos], 500); }
+          else if (detail === 'Set') { move(_this.playerOffsetsReceiveSet[pos], 500); }
+          else if (detail === 'Hit') { move(_this.playerOffsetsReceiveHit[pos], 500); }
+          else if (detail === 'Switch') { move(_this.playerOffsetsSwitchReceive[pos], 500); }
+      }
+  };
 
   function toggleHighlightPlayer(player) {
     if (_this.highlightedPlayer === 0) {

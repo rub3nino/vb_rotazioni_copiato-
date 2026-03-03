@@ -1,17 +1,169 @@
+:root {
+  --bg-color: #f0f4f8;
+  --court-bg: #85d6ff;
+  --primary: #3182ce;
+  --primary-hover: #2b6cb0;
+  --secondary: #e2e8f0;
+  --text-main: #2d3748;
+  --text-light: #718096;
+  --accent-serve: #48bb78;
+  --accent-receive: #ed8936;
+  --active-btn: #3182ce;
+  --radius: 8px;
+}
+
 * {
-  font-family: sans-serif;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', sans-serif;
 }
+
 body {
-  padding: auto;
-  width: 90%;
-  margin: auto;
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  line-height: 1.5;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
 }
+
+.app-header {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.app-header h1 {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: var(--primary);
+  margin-bottom: 4px;
+}
+
+.app-header h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-light);
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 1200px;
+  gap: 24px;
+}
+
+@media (min-width: 900px) {
+  .app-container {
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+  }
+}
+
+.controls-panel {
+  flex: 1;
+  background: white;
+  padding: 20px;
+  border-radius: var(--radius);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.court-panel {
+  flex: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: white;
+  padding: 10px;
+  border-radius: var(--radius);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  max-width: 100%;
+}
+
 #diagram-container {
   width: 100%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+#diagram {
+  width: 100%;
+  max-width: 600px; /* Reduced since we removed UI from SVG */
+  aspect-ratio: 1 / 1.1; /* Approximate aspect ratio of the court */
+}
+
+#diagram svg {
+  width: 100%;
+  height: 100%;
+}
+
+.control-group h4 {
+  font-size: 1.1rem;
+  margin-bottom: 16px;
+  border-bottom: 2px solid var(--secondary);
+  padding-bottom: 8px;
+}
+
+.action-subsection h5 {
+  font-size: 0.95rem;
+  color: var(--text-light);
+  margin-bottom: 8px;
+  margin-top: 16px;
+}
+
+.rotation-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.action-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.btn {
+  background: var(--secondary);
+  border: none;
+  padding: 10px 16px;
+  border-radius: var(--radius);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-main);
+  cursor: pointer;
+  transition: all 0.2s;
+  flex: 1 1 auto;
   text-align: center;
 }
-#diagram {
-  min-width: 400px;
-  max-width: 900px;
-  margin: 0 auto;
+
+.btn:hover {
+  background: #cbd5e0;
+}
+
+.btn.active {
+  background: var(--active-btn);
+  color: white;
+  box-shadow: 0 2px 4px rgba(49, 130, 206, 0.4);
+}
+
+.app-footer {
+  margin-top: 40px;
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--text-light);
+}
+
+.app-footer a {
+  color: var(--primary);
+  text-decoration: none;
+}
+
+.app-footer a:hover {
+  text-decoration: underline;
 }
