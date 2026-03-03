@@ -1,0 +1,17 @@
+* {
+  font-family: sans-serif;
+}
+body {
+  padding: auto;
+  width: 90%;
+  margin: auto;
+}
+#diagram-container {
+  width: 100%;
+  text-align: center;
+}
+#diagram {
+  min-width: 400px;
+  max-width: 900px;
+  margin: 0 auto;
+}
