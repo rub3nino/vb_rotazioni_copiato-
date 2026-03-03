@@ -408,6 +408,165 @@ monkeysppp.vbRotations.SVGMaker = function() {
       },
   };
 
+  // FIPAV Defense Block at 4 (Opponent attacks from their 4, our right side)
+  // Block formed by P2 & P3.
+  this.playerOffsetsDefense4 = {
+    1: { // P1 (Setter in 1) -> S is P1, O is P4, M1 is P6, M2 is P3, H1 is P2, H2 is P5
+        h1: { x: 400, y: 50 }, // Right block
+        m2: { x: 300, y: 50 }, // Center-right block
+        o:  { x: 100, y: 150 }, // Left line cover
+        s:  { x: 400, y: 350 }, // Deep line
+        m1: { x: 225, y: 350 }, // Deep middle
+        h2: { x: 80,  y: 280 }, // Deep angle
+      },
+    2: { // P1 is H1
+        s:  { x: 400, y: 50 },
+        m2: { x: 300, y: 50 },
+        h1: { x: 100, y: 150 },
+        o:  { x: 400, y: 350 },
+        h2: { x: 225, y: 350 },
+        m1: { x: 80,  y: 280 },
+      },
+    3: { // P1 is M2
+        m2: { x: 400, y: 50 },
+        s:  { x: 300, y: 50 },
+        h2: { x: 100, y: 150 },
+        h1: { x: 400, y: 350 },
+        m1: { x: 225, y: 350 },
+        o:  { x: 80,  y: 280 },
+      },
+    4: { // P1 is O
+        h2: { x: 400, y: 50 },
+        m1: { x: 300, y: 50 },
+        s:  { x: 100, y: 150 },
+        m2: { x: 400, y: 350 },
+        o:  { x: 225, y: 350 },
+        h1: { x: 80,  y: 280 },
+      },
+    5: { // P1 is H2
+        o:  { x: 400, y: 50 },
+        m1: { x: 300, y: 50 },
+        h2: { x: 100, y: 150 },
+        m2: { x: 400, y: 350 },
+        h1: { x: 225, y: 350 },
+        s:  { x: 80,  y: 280 },
+      },
+    6: { // P1 is M1
+        m1: { x: 400, y: 50 },
+        o:  { x: 300, y: 50 },
+        s:  { x: 100, y: 150 },
+        h1: { x: 400, y: 350 },
+        h2: { x: 225, y: 350 },
+        m2: { x: 80,  y: 280 },
+      },
+  };
+
+  // FIPAV Defense Block at 2 (Opponent attacks from their 2, our left side)
+  // Block formed by P4 & P3 
+  this.playerOffsetsDefense2 = {
+    1: {
+        o:  { x: 50,  y: 50 }, // Left block
+        m2: { x: 150, y: 50 }, // Center-left block
+        h1: { x: 350, y: 150 }, // Right line cover
+        s:  { x: 370, y: 280 }, // Deep angle
+        m1: { x: 225, y: 350 }, // Deep middle
+        h2: { x: 50,  y: 350 }, // Deep line
+      },
+    2: {
+        h1: { x: 50,  y: 50 },
+        m2: { x: 150, y: 50 },
+        s:  { x: 350, y: 150 },
+        o:  { x: 370, y: 280 },
+        h2: { x: 225, y: 350 },
+        m1: { x: 50,  y: 350 },
+      },
+    3: {
+        h2: { x: 50,  y: 50 },
+        s:  { x: 150, y: 50 },
+        m2: { x: 350, y: 150 },
+        h1: { x: 370, y: 280 },
+        m1: { x: 225, y: 350 },
+        o:  { x: 50,  y: 350 },
+      },
+    4: {
+        s:  { x: 50,  y: 50 },
+        m1: { x: 150, y: 50 },
+        h2: { x: 350, y: 150 },
+        m2: { x: 370, y: 280 },
+        o:  { x: 225, y: 350 },
+        h1: { x: 50,  y: 350 },
+      },
+    5: {
+        h2: { x: 50,  y: 50 },
+        m1: { x: 150, y: 50 },
+        o:  { x: 350, y: 150 },
+        m2: { x: 370, y: 280 },
+        h1: { x: 225, y: 350 },
+        s:  { x: 50,  y: 350 },
+      },
+    6: {
+        s:  { x: 50,  y: 50 },
+        o:  { x: 150, y: 50 },
+        m1: { x: 350, y: 150 },
+        h1: { x: 370, y: 280 },
+        h2: { x: 225, y: 350 },
+        m2: { x: 50,  y: 350 },
+      },
+  };
+
+  // FIPAV Defense Block at Center (Opponent attacks from Center)
+  // Block formed by P3 (Middle)
+  this.playerOffsetsDefenseCenter = {
+    1: {
+        m2: { x: 225, y: 50 },  // Center block
+        o:  { x: 75,  y: 120 }, // Left short cover
+        h1: { x: 375, y: 120 }, // Right short cover
+        h2: { x: 75,  y: 320 }, // Deep Left
+        s:  { x: 375, y: 320 }, // Deep Right
+        m1: { x: 225, y: 360 }, // Deep Center (Libero)
+      },
+    2: {
+        m2: { x: 225, y: 50 },
+        h1: { x: 75,  y: 120 },
+        s:  { x: 375, y: 120 },
+        m1: { x: 75,  y: 320 },
+        o:  { x: 375, y: 320 },
+        h2: { x: 225, y: 360 },
+      },
+    3: {
+        s:  { x: 225, y: 50 },
+        h2: { x: 75,  y: 120 },
+        m2: { x: 375, y: 120 },
+        o:  { x: 75,  y: 320 },
+        h1: { x: 375, y: 320 },
+        m1: { x: 225, y: 360 },
+      },
+    4: {
+        m1: { x: 225, y: 50 },
+        s:  { x: 75,  y: 120 },
+        h2: { x: 375, y: 120 },
+        h1: { x: 75,  y: 320 },
+        m2: { x: 375, y: 320 },
+        o:  { x: 225, y: 360 },
+      },
+    5: {
+        m1: { x: 225, y: 50 },
+        h2: { x: 75,  y: 120 },
+        o:  { x: 375, y: 120 },
+        s:  { x: 75,  y: 320 },
+        m2: { x: 375, y: 320 },
+        h1: { x: 225, y: 360 },
+      },
+    6: {
+        o:  { x: 225, y: 50 },
+        s:  { x: 75,  y: 120 },
+        m1: { x: 375, y: 120 },
+        m2: { x: 75,  y: 320 },
+        h1: { x: 375, y: 320 },
+        h2: { x: 225, y: 360 },
+      },
+  };
+
   this.tutorialData = [
     {
       boxPosition: {
@@ -948,7 +1107,7 @@ monkeysppp.vbRotations.SVGMaker = function() {
 
   this.reapplyCurrentAction = function() {
       var pos = _this.setterAt;
-      var type = _this.currentAction.type; // 'Serve' or 'Receive'
+      var type = _this.currentAction.type; // 'Serve', 'Receive', 'Defense'
       var detail = _this.currentAction.detail;
 
       if (type === 'Serve') {
@@ -961,6 +1120,10 @@ monkeysppp.vbRotations.SVGMaker = function() {
           else if (detail === 'Set') { move(_this.playerOffsetsReceiveSet[pos], 500); }
           else if (detail === 'Hit') { move(_this.playerOffsetsReceiveHit[pos], 500); }
           else if (detail === 'Switch') { move(_this.playerOffsetsSwitchReceive[pos], 500); }
+      } else if (type === 'Defense') {
+          if (detail === 'Defense4') { move(_this.playerOffsetsDefense4[pos], 500); }
+          else if (detail === 'Defense2') { move(_this.playerOffsetsDefense2[pos], 500); }
+          else if (detail === 'DefenseCenter') { move(_this.playerOffsetsDefenseCenter[pos], 500); }
       }
   };
 

@@ -7,6 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css" />
     <script src="js/snap.svg-min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     <script src="js/vbRotations.js"></script>
     <script type="text/javascript">
       var svgMaker;
@@ -58,6 +59,27 @@
       function updateActiveAction(type, detail) {
         document.querySelectorAll('.act-btn').forEach(btn => btn.classList.remove('active'));
         document.getElementById('act-btn-' + type.toLowerCase() + '-' + detail.toLowerCase()).classList.add('active');
+        
+        // Save state for screenshot name
+        window.currentActionState = type + '_' + detail;
+      }
+
+      function exportScreenshot() {
+          const diagramContainer = document.getElementById('diagram-container');
+          
+          html2canvas(diagramContainer, {
+              backgroundColor: null,
+              scale: 2 // Higher resolution
+          }).then(canvas => {
+              const link = document.createElement('a');
+              
+              var rotText = "P" + (svgMaker.setterAt || "1");
+              var stateText = window.currentActionState || "Servizio_Base";
+              
+              link.download = `SchemaVolley_${rotText}_${stateText}.png`;
+              link.href = canvas.toDataURL('image/png');
+              link.click();
+          });
       }
 
     </script>
@@ -66,6 +88,7 @@
     <header class="app-header">
       <h1>Rotazioni Pallavolo</h1>
       <h3>Ricezione a 3 ricettori</h3>
+      <button class="btn export-btn" onclick="exportScreenshot()" style="margin-top: 10px; background-color: #48bb78; color: white;">📸 Esporta Campo (PNG)</button>
     </header>
 
     <main class="app-container">
@@ -115,6 +138,15 @@
               <button class="btn act-btn" id="act-btn-receive-set" onclick="setAppAction('Receive', 'Set')">Alzata</button>
               <button class="btn act-btn" id="act-btn-receive-hit" onclick="setAppAction('Receive', 'Hit')">Attacco</button>
               <button class="btn act-btn" id="act-btn-receive-switch" onclick="setAppAction('Receive', 'Switch')">Cambio</button>
+            </div>
+          </div>
+
+          <div class="action-subsection">
+            <h5>Difesa (Muro)</h5>
+            <div class="action-grid">
+              <button class="btn act-btn" id="act-btn-defense-defense4" onclick="setAppAction('Defense', 'Defense4')">Da Zona 4</button>
+              <button class="btn act-btn" id="act-btn-defense-defensecenter" onclick="setAppAction('Defense', 'DefenseCenter')">Da Centro</button>
+              <button class="btn act-btn" id="act-btn-defense-defense2" onclick="setAppAction('Defense', 'Defense2')">Da Zona 2</button>
             </div>
           </div>
 
